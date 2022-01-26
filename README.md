@@ -1,11 +1,12 @@
-# evtx2log
-convertir les journaux .evtx en .log lisibles
+# evtx2log.sh   Convertir les journaux .evtx en .log lisibles
+----------------------------------------------------------------
 
-Installer les dépendences :
--
+
+ Installer les dépendences :
+---------------------------
 sudo apt install rename libevtx-utils -y
 
 
-Lancement :
--
+ Lancement :
+----------
 sudo ./evtx2log.sh <chemin_evtx> <chemin_destination>
