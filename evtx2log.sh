@@ -3,18 +3,28 @@
 # GitHub : yakisyst3m 	
 # 2022_03_26 v1.11
 #
-if [[ "$1" == '--help' ]] || [[ "$#" == 0 ]] ; then
-	echo -e "\nAide pour utiliser la commande :\n"
+
+rouge='\e[1;31m'
+vert='\e[1;32m'
+jaune='\e[1;33m'
+bleu='\e[1;34m' 
+violet='\e[1;35m'
+neutre='\e[0;m'
+souligne="\e[4m"
+
+if [[ "$1" == '--help' ]] || [[ "$1" == "-h"  ]] || [[ "$#" == "0" ]] ; then
+	echo -e "\n${souligne}Aide pour utiliser la commande :${neutre}"
+	echo -e "** La recherche se déroule de façon récursive depuis le dossier source.\n"
         echo -e	"\t./evtx2Log.sh [dossier source chemin_evtx] [dossier destination chemin_log_to_export]\n"
 fi
 
 
 
 if [[ ! -d "$1" ]] ; then
-	echo "Chemin source invalide"
+	echo -e "${rouge}Chemin source invalide${neutre}\n"
 	elif [[ ! -d "$2" ]]
 	then
-		echo -e "Chemin destination invalide \n"
+		echo -e "${rouge}Chemin destination invalide${neutre}\n"
 fi
 
 if [[ "$#" -ge 1 ]] && [[ -d "$1" ]] && [[ -d "$2"  ]] ; then
@@ -35,5 +45,7 @@ if [[ "$#" -ge 1 ]] && [[ -d "$1" ]] && [[ -d "$2"  ]] ; then
 
 	rm /tmp/list
 fi
+
+echo -e "${vert}[ OK ] - La recherche et le parsing est terminé, vos logs \".evtx\"ont été converti en \".log\"${neutre}"
 
 exit 0
